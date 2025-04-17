@@ -1,0 +1,471 @@
+html {
+  font-size: 12px;
+}
+
+.montserrat {
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.quicksand {
+  font-family: "Quicksand", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  background-color: #bfe2ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+header {
+  background-color: #e37869;
+  position: absolute;
+  top: 0;
+  width: 90%;
+  height: 7rem;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 3rem;
+  margin: 0 auto 3rem auto;
+  border-radius: 0 0 3rem 3rem;
+  color: white;
+
+  left {
+    display: flex;
+    justify-content: left;
+    align-items: left;
+  }
+
+  right {
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    font-weight: 400;
+    transition: font-weight 0.3s ease;
+  }
+
+  right :hover {
+    font-weight: 700;
+    transition: font-weight 0.3s ease;
+  }
+
+  h1 {
+    font-size: 2rem;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 700;
+    margin: 0;
+    padding: 2rem 0;
+  }
+  h2 {
+    font-size: 2rem;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 200;
+    margin: 0;
+    padding: 2rem 0;
+  }
+
+  @media screen and (max-width: 1000px) {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 6rem;
+    padding: 0 2rem;
+    margin: 0 auto;
+    border-radius: 0;
+    align-items: center;
+    z-index: 1000;
+  }
+}
+
+svg {
+  overflow: visible;
+  position: absolute;
+}
+
+circle {
+  stroke-width: 5px;
+  transition: transform 0.3s ease, stroke 0.3s ease;
+  transform-origin: 50% 50%;
+  fill: white;
+}
+
+circle:hover {
+  transform: scale(2);
+  stroke: black;
+  stroke-width: 5px;
+  fill: white;
+}
+
+.world-map-container {
+  position: absolute;
+  top: 10rem;
+  width: 80%;
+  height: 100%;
+  max-height: 80vh;
+  margin-left: auto;
+  margin-right: auto;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  overflow-y: hidden;
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+}
+
+.world-map-container-mobile {
+  display: none;
+
+  @media screen and (max-width: 1000px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+    height: 100%;
+    padding: 8rem 0;
+
+    .Continent-mobile {
+      width: 80%;
+      height: max-content;
+      margin-bottom: 2rem;
+    }
+
+    .Continent-map-mobile {
+      width: 100%;
+      height: auto;
+      max-width: 100%;
+      margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    svg {
+      width: 80%;
+      height: auto;
+      max-width: 100%;
+
+      .land-path {
+
+        filter:drop-shadow(0px 5px 0px #78b6d1);
+
+      }
+
+    }
+
+    h2 {
+      font-family: "Quicksand", sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: #ffffff;
+      text-align: center;
+      margin-top: 2rem;
+      text-transform: uppercase;
+    }
+
+    .Continent-mobile {
+
+        margin-bottom: 2rem;
+
+    }
+
+    #Asia-mobile {
+      aspect-ratio: 318/184;
+    }
+
+    #Europe-mobile {
+      aspect-ratio: 336/236;
+    }
+
+    #NA-mobile {
+      aspect-ratio: 334/206;
+    }
+
+    #SA-mobile {
+      aspect-ratio: 211/167;
+      svg {
+
+        width: 50%;
+        height: auto;
+        justify-self: center;
+        align-self: center;
+        margin: 0 auto;
+        transform: translate(25%,0);
+        
+      }
+    }
+
+    #Africa-mobile {
+      aspect-ratio: 238/160;
+      svg {
+
+        width: 60%;
+        height: auto;
+        justify-self: center;
+        align-self: center;
+        margin: 0 auto;
+        transform: translate(20%,0);
+        
+      }
+    }
+
+    #Oceania-mobile {
+      aspect-ratio: 262/220;
+      svg {
+
+        width: 70%;
+        height: auto;
+        justify-self: center;
+        align-self: center;
+        margin: 0 auto;
+        transform: translate(10%,0);
+        
+      }
+    }
+
+  }
+}
+
+svg {
+  width: 100%; /* Scale the SVG to fit the container's width */
+  height: auto; /* Maintain the aspect ratio */
+  max-width: 100%; /* Prevent the SVG from exceeding the container's width */
+}
+
+.continent {
+  stroke: #edebdc;
+  stroke-width: 10px;
+
+  path {
+    fill: #d4d0c7;
+    transition: transform 0.1s ease, fill 0.1s ease;
+    filter: drop-shadow(0px 10px 0px #78b6d1);
+  }
+  rect {
+    fill: #d4d0c7;
+    transition: transform 0.1s ease, fill 0.1s ease;
+    filter: drop-shadow(-10px 0px 0px #78b6d1);
+  }
+}
+
+.continent :hover {
+  path {
+    fill: #e47769;
+  }
+
+  rect {
+    fill: #e47769;
+  }
+  cursor: pointer;
+}
+
+#city_name {
+  position: absolute;
+  display: none;
+  border: 5px solid rgb(255, 255, 255);
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 24px;
+  pointer-events: none;
+  z-index: 1000;
+
+  background-color: #ffffff;
+  padding: 1rem 1rem;
+  border-radius: 2rem;
+  height: fit-content;
+  width: fit-content;
+  justify-content: left;
+  align-items: center;
+  box-shadow: 0px 5px 0px rgba(0, 0, 0, 0.2);
+
+  font-family: "Quicksand", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #e47769;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+}
+
+footer {
+  width: 90%;
+  display: flex;
+  position: absolute;
+  bottom: 1rem;
+  justify-content: space-between;
+  margin: 3rem auto 3rem auto;
+  color: white;
+
+  left {
+    background-color: #e37869;
+    padding: 3rem 3rem;
+    border-radius: 3rem;
+    height: fit-content;
+    width: fit-content;
+    justify-content: center;
+    align-items: left;
+    display: flex;
+
+    img {
+      width: 1rem;
+      height: 100%;
+      margin-left: 1rem;
+      justify-self: center;
+      align-self: center;
+    }
+
+    #continent-name {
+      font-family: "Quicksand", sans-serif;
+      font-size: 24px;
+      font-weight: bold;
+      color: white;
+    }
+  }
+
+  @media screen and (max-width: 1000px) {
+    display: none;
+  }
+}
+
+/* Pop-up container */
+.city-info-popup {
+  position: fixed;
+  top: 90vh;
+  right: 8vh;
+  width: 40vw;
+  height: 90vh;
+  padding-bottom: 10vh;
+  background-color: #ffffff;
+  border-radius: 3rem;
+  transition: top 0.3s ease; /* Smooth slide-in effect */
+  z-index: 1000;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-bottom: 2rem;
+  }
+
+  @media screen and (max-width: 1000px) {
+    position: fixed;
+    top: 90vh;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+    padding-bottom: 0;
+    border-radius: 0;
+    transition: top 0.3s ease-in-out;
+    z-index: 1000;
+
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      margin-bottom: 2rem;
+    }
+  }
+}
+
+/* Pop-up header */
+.popup-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3rem;
+  background-color: #e37869;
+  border-radius: 3rem 3rem 0 0;
+
+  @media screen and (max-width: 1000px) {
+    border-radius: 0;
+    padding: 2rem;
+    height: 10vh;
+  }
+}
+
+.popup-header-names {
+  display: block;
+
+  h2 {
+    font-family: "Quicksand", sans-serif;
+    font-size: 3rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  h3 {
+    font-family: "Quicksand", sans-serif;
+    font-size: 2rem;
+    font-weight: 200;
+    color: white;
+  }
+
+  @media screen and (max-width: 1000px) {
+    h2 {
+      font-size: 2rem;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+    }
+    
+  }
+}
+
+.popup-header .close-popup {
+  font-size: 3rem;
+  color: white;
+  font-family: "Quicksand", sans-serif;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Pop-up content */
+.popup-content {
+  padding: 3rem;
+  font-family: "Quicksand", sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.5;
+  height: 70vh;
+  overflow-y: scroll;
+
+  @media screen and (max-width: 1000px) {
+    padding: 2rem;
+    font-size: 1.5rem;
+    height: 90vh;
+    overflow-y: scroll;
+    
+  }
+}
+
+#popup-card-image {
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+
+  @media screen and (max-width: 1000px) {
+    transform: scale(1);
+  }
+}
+
+
+
+#popup-card-image:hover {
+  transform: scale(1) translateY(-5px);
+  transition: transform 0.3s ease;
+}
