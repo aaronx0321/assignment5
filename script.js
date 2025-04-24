@@ -13,7 +13,9 @@ const popupCardImage = document.getElementById("popup-card-image");
 const popupCardYear = document.getElementById("popup-card-year");
 const popupCardOperator = document.getElementById("popup-card-operator");
 const popupCardType = document.getElementById("popup-card-type");
-const popupCardCompatibility = document.getElementById("popup-card-compatibility");
+const popupCardCompatibility = document.getElementById(
+  "popup-card-compatibility"
+);
 const popupCardMobile = document.getElementById("popup-card-mobile");
 const popupCardColor = document.getElementById("popup-card-color");
 
@@ -70,7 +72,7 @@ document.querySelectorAll("circle").forEach((circle) => {
     popupCardCompatibility.textContent = cardCompatibility;
     popupCardMobile.textContent = cardMobile;
     popupCardColor.textContent = cardColor;
-  });  
+  });
 
   closePopup.addEventListener("click", () => {
     popup.style.top = "90vh"; // Hide the pop-up
@@ -80,11 +82,10 @@ document.querySelectorAll("circle").forEach((circle) => {
   });
 });
 
-
-if (window.innerWidth <= 1000) { // Check if the device is mobile
+if (window.innerWidth <= 1000) {
+  // Check if the device is mobile
   document.querySelectorAll("rect").forEach((rect) => {
     rect.addEventListener("click", () => {
-
       const cityName = rect.id; // Get the city name from the rect's ID
       const cardName = rect.getAttribute("data-card-name"); // Get the card name from the data attribute
       const cardImage = rect.getAttribute("data-card-image");
@@ -106,7 +107,6 @@ if (window.innerWidth <= 1000) { // Check if the device is mobile
         popup.style.top = "0";
         closePopup.innerHTML = "&times;";
       }
-
       // Update the pop-up content
       popupCityName.textContent = cityName;
       popupCardName.textContent = cardName;
@@ -128,20 +128,16 @@ if (window.innerWidth <= 1000) { // Check if the device is mobile
   });
 }
 
-
-
 const continentNameDisplay = document.getElementById("continent-name");
 const citiesNameDisplay = document.getElementById("city-name");
 
 document.querySelectorAll(".continent").forEach((continent) => {
   continent.addEventListener("mouseenter", () => {
-      
-        const continentName = continent.id; // Get the continent's name
-        const cities = continent.getAttribute("data-cities"); // Get the cities from the data-cities attribute
-        continentNameDisplay.innerHTML = `${continentName}`;
-        citiesNameDisplay.innerHTML = `${cities}`; // Display the cities
-    });
-    continent.addEventListener("mouseleave", () => {
-    });
+    const continentName = continent.id; // Get the continent's name
+    const cities = continent.getAttribute("data-cities"); // Get the cities from the data-cities attribute
+    continentNameDisplay.innerHTML = `${continentName}`;
+    citiesNameDisplay.innerHTML = `${cities}`; // Display the cities
+  });
+  continent.addEventListener("mouseleave", () => {});
   // Remove the mouseleave event listener to prevent clearing the display
 });
